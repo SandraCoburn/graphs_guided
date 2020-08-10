@@ -47,3 +47,18 @@
   B: [E]
   C: []
   E: []
+
+## Breath-First Traversal:
+
+- Init: add starting node to the queue
+- Deque a node. If visited, ignore it. Else: add all node's neighbors to the queue. Mark node as visited.
+
+## Depth-First Traversal
+
+- Init: add starting node to Stack
+
+## Breath-First Search:
+
+- Init queue, queue the path: Queue front->[[C,B], [C,G], [C,B,C],[C,B,F], [C,B,E]]
+- keep each path in a list
+- Keep track of visited nodes with whole path: visited{C}
