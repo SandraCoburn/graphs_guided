@@ -58,19 +58,34 @@ class Graph:
                     q.enqueue(neighbor)
 
     def bfs(self, starting_vertex_id, target_vertex_id):
-        pass
         # Create an empty queue and enqueue A PATH TO the starting vertex ID
+        q = Queue()
+        q.enqueue([starting_vertex_id])
         # Create a Set to store visited vertices
-        # While the queue is not empty...
+        visited = set()
+        
+        # While the queue is not empty..
+        while q.size() > 0:
             # Dequeue the first PATH
+            path = q.dequeue()
             # Grab the last vertex from the PATH
+            last_node = path[-1]
             # If that vertex has not been visited...
+            if last_node not in visited:
                 # CHECK IF IT'S THE TARGET
-                  # IF SO, RETURN PATH
+                if last_node == target_vertex_id:
+                    # IF SO, RETURN PATH
+                    return path
                 # Mark it as visited...
+                visited.add(last_node)
                 # Then add A PATH TO its neighbors to the back of the queue
-                  # COPY THE PATH
-                  # APPEND THE NEIGHOR TO THE BACK
+                for next_nbr in self.get_neighbors(last_node):
+                    new_path = list(path)
+                    # COPY THE PATH
+                    new_path.append(next_nbr)
+                    print("new path:", new_path)
+                    # APPEND THE NEIGHOR TO THE BACK
+                    q.enqueue(new_path)
 
 
 
