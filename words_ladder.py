@@ -1,3 +1,13 @@
+'''
+Given two words (begin_word and end_word), and a dictionary's word list,
+return the shortes transformation sequence from the begin_word to end-word, such that:
+- Only one letter canb e changed at a time.
+- Each transformed word must exist in the word list. Note the begin_word is not a transformed word.
+- begin_word = "hit or "sail"
+- end_word = "cog" or "boat"
+- return: ["hit", "hot", "cot", "cog"]
+'''
+
 class Queue():
     def __init__(self):
         self.queue = []
