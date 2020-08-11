@@ -87,7 +87,16 @@ class Graph:
                     # APPEND THE NEIGHOR TO THE BACK
                     q.enqueue(new_path)
 
-
+    def dft_recursive(self, starting_vertex_id, visited=None):
+        if visited is None:
+            visited = set()
+        visited.add(starting_vertex_id)
+        print("dft recursive", starting_vertex_id)
+        for neighbor in self.vertices[starting_vertex_id]:
+            if neighbor not in visited:
+                self.dft_recursive(neighbor, visited)
+    def dfs_recursive(self, vertex, ending_ver):
+        pass
 
 g = Graph()
 
@@ -109,6 +118,7 @@ g.add_edge(5, 4)
 print(g.vertices)
 
 g.bft(3)
+g.dft_recursive(1)
 
 # self.vertices = {
 #     1: {2}
