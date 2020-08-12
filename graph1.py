@@ -87,6 +87,35 @@ class Graph:
                     # APPEND THE NEIGHOR TO THE BACK
                     q.enqueue(new_path)
 
+    def dft_recursive(self, starting_vertex_id, visited=None):
+        if visited is None:
+            visited = set()
+        visited.add(starting_vertex_id)
+        print("dft recursive", starting_vertex_id)
+        for neighbor in self.vertices[starting_vertex_id]:
+            if neighbor not in visited:
+                self.dft_recursive(neighbor, visited)
+    def dfs_recursive(self, vertex, ending_ver, visited=None, path=None):
+        if visited is None:
+            visited = set()
+        if path is None:
+            path = []
+        visited.add(vertex)
+        path = path + [vertex] #subtly makes a copy of the path
+        '''
+        line above is equivalent to:
+        path = list(path) #make a copy
+        path.append(vertex)
+        '''
+        if vertex == ending_ver:
+            return path
+        for neighbor in self.get_neighbors(vertex):
+            if neighbor not in visited:
+                new_path = self.dfs_recursive(neighbor, ending_ver, visited, path)
+                if new_path is not None:
+                    print("recursive dfs:", new_path)
+                    return new_path
+        return None
 
 
 g = Graph()
@@ -109,7 +138,8 @@ g.add_edge(5, 4)
 print(g.vertices)
 
 g.bft(3)
-
+g.dft_recursive(1)
+g.dfs_recursive(1,6)
 # self.vertices = {
 #     1: {2}
 #     2: set(1)

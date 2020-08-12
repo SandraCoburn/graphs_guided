@@ -62,3 +62,36 @@
 - Init queue, queue the path: Queue front->[[C,B], [C,G], [C,B,C],[C,B,F], [C,B,E]]
 - keep each path in a list
 - Keep track of visited nodes with whole path: visited{C}
+
+## Solving Graph Problems!!
+
+1. Describe the problem using graphs terminology
+
+- What are your nodes?
+- When are nodes connected?
+- What are your connected components?
+
+2. Build your graph, or write your getNeighbors()
+
+- figure out how to get the node's edges
+
+3. Chose your algorithm, and apply it
+
+## Example
+
+Given two words (begin_word and end_word), and a dictionary's word list,
+return the shortes transformation sequence from the begin_word to end-word, such that:
+
+- Only one letter canb e changed at a time.
+- Each transformed word must exist in the word list. Note the begin_word is not a transformed word.
+- begin_word = "hit
+- end_word = "cog"
+- return: ["hit", "hot", "cot", "cog"]
+
+1. Translate into graphs terminology
+
+- Nodes: words
+- There's an edge if words are different by one letter, and both are in the word lists
+
+2. getNeighbors
+3. Choose our algorithm: BFS
