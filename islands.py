@@ -43,7 +43,7 @@ def get_neighbors(row, col, islands):
     if col > 0 and islands[row][col-1] == 1:
         neighbors.append((row, col-1))
     #check east
-    if col < len(islands[0]) and islands[row][col+1] == 1:
+    if col < len(islands[0]) - 1 and islands[row][col+1] == 1:
         neighbors.append((row, col+1))
     return neighbors
 
