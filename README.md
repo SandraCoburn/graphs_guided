@@ -95,3 +95,15 @@ return the shortes transformation sequence from the begin_word to end-word, such
 
 2. getNeighbors
 3. Choose our algorithm: BFS
+
+## When is DFS a better choice?
+
+- Maybe if you want the longet path, or most relations
+- Might be faster,, since it goes to a leaf first
+- Can do recursively
+
+If visiting all nodes, then either will work. O(n)
+
+## When is BFS a better choice?
+
+- Shortest Path
